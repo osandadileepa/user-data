@@ -3,7 +3,7 @@ spring:
     allow-bean-definition-overriding: true
   data:
     rest:
-      base-path: /v0/
+      base-path: /v0
     jpa:
       repositories:
         bootstrap-mode: deferred
@@ -11,3 +11,8 @@ spring:
 logging:
   file:
     path: logs
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
