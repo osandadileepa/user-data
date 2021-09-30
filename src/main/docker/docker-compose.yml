@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  example:
+    driver: local
+services:
+  mysql:
+    image: "mysql:5.7.30"
+    volumes:
+      - example:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: example
+    command: --disable-partition-engine-check
+    ports:
+      - "3333:3306"
