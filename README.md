@@ -33,7 +33,7 @@ SPRING_PROFILES_ACTIVE=dev ./gradlew bootRun
 - MySQL instance should available at locally, port 3333 with correct credentials in order to jar file to work.
 
 ```bash
-java -jar -Dspring.profiles.active=dev build/libs/example-0.0.1-SNAPSHOT.jar
+java -jar -Dspring.profiles.active=dev build/libs/user-data-0.0.1-SNAPSHOT.jar
 ```
 
 After executing above command application present at http://localhost:8080
@@ -41,6 +41,10 @@ After executing above command application present at http://localhost:8080
 ## Test cases
 
 - All the test cases written to test application core logics are available at src/test/java
+
+## API Documentation with Open API
+
+Swagger UI and API docs available at http://localhost:8080/swagger/ui.html
 
 ## Docker Build
 

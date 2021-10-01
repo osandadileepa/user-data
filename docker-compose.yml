@@ -1,0 +1,33 @@
+version: "3"
+
+volumes:
+  user-data:
+    driver: local
+
+services:
+  mysql-service:
+    image: "mysql:5.7.30"
+    networks:
+      - user-data-network
+    container_name: mysql-service
+    volumes:
+      - user-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: example
+    command: --disable-partition-engine-check
+
+  web-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    networks:
+      - user-data-network
+    depends_on:
+      - mysql-service
+
+networks:
+  user-data-network:
+    driver: bridge

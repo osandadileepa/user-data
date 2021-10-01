@@ -4,7 +4,6 @@ import com.osanda.example.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.Serializable;
 import java.time.format.DateTimeFormatter;
@@ -32,7 +31,7 @@ public class UserDto implements Serializable {
         this.id = user.getId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
-        this.dateOfBirth = user.getDateOfBirth().format(DateTimeFormatter.ISO_DATE);
+        this.dateOfBirth = user.getDateOfBirth() != null ? user.getDateOfBirth().format(DateTimeFormatter.ISO_DATE) : null;
         this.mobileNumber = user.getMobileNumber();
         this.city = user.getCity() != null ? new CityDto(user.getCity()) : null;
     }
