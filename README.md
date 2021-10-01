@@ -46,7 +46,7 @@ After executing above command application present at http://localhost:8080
 
 Swagger UI and API docs available at http://localhost:8080/swagger/ui.html
 
-## Docker Build
+## Docker based production build
 
 - Docker based build solution has implemented using Dockerfile and docker compose file also available to create the necessary environments.
 - Using the following command in the root directory to execute the build.
@@ -55,6 +55,6 @@ Swagger UI and API docs available at http://localhost:8080/swagger/ui.html
 docker-compose up --build
 ```
 
-- Res api can be accessible via http://localhost:9090
+- Rest api can be accessible via http://localhost:9090
 
 

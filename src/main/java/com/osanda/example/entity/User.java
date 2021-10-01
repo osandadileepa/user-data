@@ -1,6 +1,8 @@
 package com.osanda.example.entity;
 
 import com.osanda.example.dto.UserDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +22,8 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Setter
 @Getter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class User extends BaseEntity {
 

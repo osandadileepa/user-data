@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.format.DateTimeFormatter;
 
@@ -15,20 +16,19 @@ public class UserDto implements Serializable {
 
     private static final long serialVersionUID = 4996183692325098316L;
 
-    private Long id;
-
+    @NotNull(message = "First Name cannot be empty")
     private String firstName;
 
     private String lastName;
 
     private String dateOfBirth;
 
+    @NotNull(message = "Mobile number is mandatory")
     private String mobileNumber;
 
     private CityDto city;
 
     public UserDto(User user) {
-        this.id = user.getId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.dateOfBirth = user.getDateOfBirth() != null ? user.getDateOfBirth().format(DateTimeFormatter.ISO_DATE) : null;
