@@ -55,6 +55,8 @@ Swagger UI and API docs available at http://localhost:8080/swagger/ui.html
 docker-compose up --build
 ```
 
-- Rest api can be accessible via http://localhost:9090
+- Rest api can be accessible via http://localhost:9090/v0
+- To monitor health and other performance related APIs actuator is available http://localhost:9090/actuator
+- Swagger UI based solution is accessible via http://localhost:9090/swagger/ui.html
 
 

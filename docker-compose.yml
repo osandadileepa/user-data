@@ -25,6 +25,7 @@ services:
       - "9090:9090"
     networks:
       - user-data-network
+    container_name: web-application
     depends_on:
       - mysql-service
 
