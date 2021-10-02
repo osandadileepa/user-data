@@ -72,10 +72,32 @@ public class UserService {
         return new UserDto(saveUser);
     }
 
+    /***
+     * Get user details from user id
+     *
+     * @param userId
+     * @return UserDto
+     * @throws RuntimeException
+     */
+    public UserDto getUserById(Long userId) throws RuntimeException {
+
+        UserDto updatedUser = null;
+
+        Optional<User> userOptional = this.userRepository.findById(userId);
+
+        if (userOptional.isPresent()) {
+            updatedUser = new UserDto(userOptional.get());
+        } else {
+            throw new UserNotFoundException("Unable to find user with ID : " + userId);
+        }
+
+        return updatedUser;
+    }
+
     /**
      * Update all the details or single detail of the user
      *
-     * @param userId primary id of the user
+     * @param userId  primary id of the user
      * @param userDto details needed to be update in the database
      * @return UserDto
      * @throws RuntimeException

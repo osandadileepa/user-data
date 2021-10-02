@@ -14,7 +14,7 @@ Make sure following are available
 
 ## MySQL instance details
 
-- MySQL instance should be exposed in localhost in port 3333. If you don't have an instance please use the docker compose
+- MySQL instance should be exposed in localhost in port 3308 (http://localhost:3308). If you don't have an instance please use the docker compose
   in src/docker
 - Default database store should be created with the credentials available in the yml file.
 
@@ -30,7 +30,13 @@ SPRING_PROFILES_ACTIVE=dev ./gradlew bootRun
 ```
 ## Start the application
 
-- MySQL instance should available at locally, port 3333 with correct credentials in order to jar file to work.
+- MySQL instance should available at locally, port 3308 (http://localhost:3308) with correct credentials in order to jar file to work.
+- Use the following command to create the executable jar.
+
+```bash
+./gradlew bootJar or ./gradlew clean build (to build with tests passes)
+```
+- After jar file is successfully created use the following command to start the application.
 
 ```bash
 java -jar -Dspring.profiles.active=dev build/libs/user-data-0.0.1-SNAPSHOT.jar
@@ -49,10 +55,12 @@ Swagger UI and API docs available at http://localhost:8080/swagger/ui.html
 ## Docker based production build
 
 - Docker based build solution has implemented using Dockerfile and docker compose file also available to create the necessary environments.
+- Docker images is created with jar file and MySQL instance is also added to the docker environment to have all
+  dependencies in production
 - Using the following command in the root directory to execute the build.
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 - Rest api can be accessible via http://localhost:9090/v0
